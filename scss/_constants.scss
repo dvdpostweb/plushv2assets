@@ -1,0 +1,227 @@
+/*COLORS*/
+$green: #94C951;
+$light-green: #a3dd5a;
+$thin-green: #d2e8b6;
+$thin-green2: #DFF0D8;
+$light-blue: #66CCCC;
+$violet: #993399;
+$grey: #9f9e98;
+$grey2: #566068;
+$dark-grey: #212a31;
+$dark-grey2: #171D23;
+$blue-facebook: #3B5998;
+$blue: #295588;
+$dark-blue: #455766;
+$red-google: #DC4A38;
+$orange: #FF6501;
+
+$thin-blue: #EBF9FE;
+$indigo-blue: #013F56;
+$indigo-blue: #0f38ae;
+$light-grey: #999;
+$lighter-grey: #DAE0E2;
+$thin-grey: #e2e2e2;
+$red: #d7263d;
+$yellow: #ecb405;
+$violet2: #715aff;
+/*COLORS*/
+
+/*COLORS ADMIN*/
+$grey-admin: #656d78;
+$dark-mexico: #2D3945;
+$light-mexico: #3D4E5D;
+$mexico: #33414E;
+$yellow-admin: #FFD559;
+/*END COLORS ADMIN*/
+
+/*END COLORS CAR TOP*/
+$blue-car: #00AEFF;
+/*END COLORS CAR TOP*/
+
+/*MEASURES*/
+$container-width: 970px; // desktop container width
+$container-padding-lr: 20px; // 20px left&right padding
+$side_menu_width: 280px; // adaptive popup sidemenu
+/*END MEASURES*/
+
+/*BREAKPOINTS*/
+$adaptive_break_point: 1023px;
+
+@mixin breakpoint($point) {
+  @if $point == breakMin1440 {
+    @media (min-width: 1440px) {
+      @content;
+    }
+  }
+  @if $point == breakMin1280 {
+    @media (min-width: 1280px) {
+      @content;
+    }
+  }
+  @if $point == break1279 {
+    @media (max-width: 1279px) {
+      @content;
+    }
+  } @else if $point == breakMin981 {
+    @media (min-width: 981px) {
+      @content;
+    }
+  } @else if $point == break1023 {
+    @media (max-width: 1023px) {
+      @content;
+    }
+  } @else if $point == break980 {
+    @media (max-width: 980px) {
+      @content;
+    }
+  } @else if $point == adaptiveBreak {
+    @media (max-width: $adaptive_break_point) {
+      @content;
+    }
+  } @else if $point == break767 {
+    @media (max-width: 767px) {
+      @content;
+    }
+  } @else if $point == breakMin768 {
+    @media (min-width: 768px) {
+      @content;
+    }
+  } @else if $point == break479 {
+    @media (max-width: 479px) {
+      @content;
+    }
+  }
+}
+/*MIXINS*/
+@mixin rwdGrid($tabs-per-row, $margin) {
+  float: left;
+  width: ((100% - ( ($tabs-per-row - 1) * $margin)) / $tabs-per-row);
+  margin-right: $margin;
+  &:nth-child(n) {
+    margin-right: $margin;
+  }
+  &:nth-child(#{$tabs-per-row}n) {
+    margin-right: 0;
+  }
+}
+@function legacy-direction($value) {
+  @if is-direction($value) == false {
+    @error "Cannot convert `#{$value}` to legacy syntax because it doesn't seem to be a direction.";
+  }
+
+  $conversion-map: (
+          to top : bottom,
+          to top right : bottom left,
+          to right top : left bottom,
+          to right : left,
+          to bottom right : top left,
+          to right bottom : left top,
+          to bottom : top,
+          to bottom left : top right,
+          to left bottom : right top,
+          to left : right,
+          to left top : right bottom,
+          to top left : bottom right
+  );
+
+  @if map-has-key($conversion-map, $value) {
+    @return map-get($conversion-map, $value);
+  }
+
+  @return 90deg - $value;
+}
+@mixin linear-gradient($direction, $color-stops...) {
+  @if is-direction($direction) == false {
+    $color-stops: $direction, $color-stops;
+    $direction: 180deg;
+  }
+  background: nth(nth($color-stops, 1), 1);
+  background: -webkit-linear-gradient(legacy-direction($direction), $color-stops);
+  background: linear-gradient($direction, $color-stops);
+}
+@mixin rotateElement($deg) { // @include rotateElement(90deg);
+  -webkit-transform: rotate($deg);
+  -moz-transform: rotate($deg);
+  -o-transform: rotate($deg);
+  -ms-transform: rotate($deg);
+  transform: rotate($deg);
+}
+@mixin discardRotate() {
+  -webkit-transform: rotate(0);
+  -moz-transform: rotate(0);
+  -o-transform: rotate(0);
+  -ms-transform: rotate(0);
+  transform: rotate(0);
+}
+@mixin animResize($time) { // ex.time 400ms
+  -moz-transition: width $time ease-in-out, left $time ease-in-out;
+  -webkit-transition: width $time ease-in-out, left $time ease-in-out;
+  -moz-transition: width $time ease-in-out, left $time ease-in-out;
+  -o-transition: width $time ease-in-out, left $time ease-in-out;
+  transition: width $time ease-in-out, left $time ease-in-out;
+}
+@mixin animResize2($time) { // ex.time 400ms
+  -webkit-transition: all $time cubic-bezier(0.250, 0.250, 0.945, 0.475);
+  -moz-transition: all $time cubic-bezier(0.250, 0.250, 0.945, 0.475);
+  -o-transition: all $time cubic-bezier(0.250, 0.250, 0.945, 0.475);
+  transition: all $time cubic-bezier(0.250, 0.250, 0.945, 0.475);
+}
+@mixin flipHorizontal() {
+  -moz-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  transform: scaleX(-1);
+  -ms-filter: fliph;
+  filter: fliph;
+}
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie);
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=$opacity-ie);
+  -moz-opacity: $opacity;
+  -khtml-opacity: $opacity;
+  opacity: $opacity;
+}
+@mixin transition-duration($duration) {
+  -webkit-transition: all $duration ease-in-out;
+  -moz-transition: all $duration ease-in-out;
+  -ms-transition: all $duration ease-in-out;
+  -o-transition: all $duration ease-in-out;
+  transition: all $duration ease-in-out;
+}
+@mixin transition-border($duration) {
+  -webkit-transition: border-color $duration ease;
+  -moz-transition: border-color $duration ease;
+  -o-transition: border-color $duration ease;
+  -ms-transition: border-color $duration ease;
+  transition: border-color $duration ease;
+}
+@mixin vertical-align($position: relative) {
+  position: $position;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+@mixin placeholderStyle {
+  /*  usage example:
+ .jobs-applications .jobs-blue-top input {
+      @include placeholderStyle {
+          ..style definition goes here..
+      }
+  }*/
+  &::-webkit-input-placeholder {
+    @content
+  }
+  &:-moz-placeholder {
+    @content
+  }
+  &::-moz-placeholder {
+    @content
+  }
+  &:-ms-input-placeholder {
+    @content
+  }
+}
+/*END MIXINS*/
