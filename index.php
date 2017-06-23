@@ -1,6 +1,6 @@
 <?php
 
-//configuration settings
+//basic configuration settings
 require_once('library/config.php');
 
 
