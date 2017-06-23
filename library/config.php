@@ -1,9 +1,9 @@
 <?php
 
 //root path
-define('SITEURL', 'http://localhost/');
+define('SITEURL', 'http://plush-rwd-v2.tritacke.org/');
 //name
 define('SITENAME', 'Plush');
 //images path
-define('IMAGES', SITEURL . 'images/');
+define('IMAGES', SITEURL . 'test/');
 
