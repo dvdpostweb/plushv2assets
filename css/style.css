@@ -1188,6 +1188,10 @@ section.super-top span:not(:first-child) {
   }
 }
 
+.show-hide-details .fa {
+  font-size: 25px;
+}
+
 /*END HOME CAROUSEL SLIDER*/
 /*HOME FILTER SEARCH*/
 #filters-holder {
