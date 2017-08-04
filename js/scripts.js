@@ -1,3 +1,9 @@
+$.fn.toggleText = function(t1, t2){
+    if (this.html() == t1) this.html(t2);
+    else                   this.html(t1);
+    return this;
+};
+
 $(document).ready(function () {
     //preload all content
     $('body').waitForImages(function () {
@@ -62,4 +68,6 @@ $(document).ready(function () {
             $("#search-top-holder").removeClass('active');
         }
     });
+
+
 });

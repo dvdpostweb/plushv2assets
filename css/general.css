@@ -1419,6 +1419,10 @@ option:first-child {
   background-position: 0 -12px;
 }
 
+.ui-widget-content {
+  border: none;
+}
+
 /*END DROPDOWN SELECT*/
 /* PANELS */
 .panel {
@@ -1511,6 +1515,40 @@ option:first-child {
   border-color: #E5E5E5;
 }
 
+/*UI SLIDER*/
+.ui-slider {
+  margin-top: 2px;
+}
+
+.ui-slider-horizontal {
+  height: 18px;
+}
+
+.ui-slider-horizontal .ui-slider-handle {
+  width: 31px;
+  height: 31px;
+  top: -0.7em;
+  line-height: 30px;
+  font-size: 11px;
+  color: #999;
+  background: #e2e2e2;
+  text-align: center;
+  cursor: pointer;
+}
+
+.ui-slider .ui-state-active,
+.ui-slider .ui-state-hover,
+.ui-slider .ui-widget-content .ui-state-active,
+.ui-slider .ui-widget-content .ui-state-hover,
+.ui-slider .ui-widget-header .ui-state-active,
+.ui-slider .ui-widget-header .ui-state-hover {
+  border: 1px solid #3B5998;
+  background: #9f9e98;
+  color: white;
+  border-radius: 3px;
+}
+
+/*END UI SLIDER*/
 /*END GENERAL*/
 
 /*# sourceMappingURL=general.css.map */

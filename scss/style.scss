@@ -26,6 +26,7 @@ header.header {
   width: 100%;
   height: auto;
   margin: 0;
+  float: left;
 }
 header.header .container-fluid {
   position: relative;
@@ -396,7 +397,7 @@ body.overlayed #search-top-holder {
   transition: opacity .35s, visibility .35s, height .35s;
   webkit-transition: opacity .35s, visibility .35s, height .35s;
   width: 100%;
-  z-index: 4;
+  z-index: 5;
 }
 #overlay.open {
   @include breakpoint(adaptiveBreak) {
@@ -408,12 +409,12 @@ body.overlayed #search-top-holder {
 //HERO
 #hero {
   float: left;
-  height: calc(100vh - 55px);
+  height: calc(100vh - 300px);
   position: relative;
   width: 100%;
-  //@include breakpoint(adaptiveBreak) {
-  //  height: calc(100vh - 60px);
-  //}
+  @include breakpoint(break479) {
+    height: calc(100vh - 210px);
+  }
 
 }
 #hero .slick-slide {
@@ -493,22 +494,22 @@ body.overlayed #search-top-holder {
 .btn#hero-promo:hover {
   background: $light-green;
 }
-#hero-scroll-down-holder {
-  width: 100%;
-  bottom: 10px;
-  left: 0;
-  text-align: center;
-  z-index: 2;
-}
-#hero-scroll-down-holder .ti {
-  display: inline-block;
-  color: white;
-  cursor: pointer;
-  transition: all .2s ease-in 0s;
-}
-#hero-scroll-down-holder .ti:hover {
-  color: $green;
-}
+//#hero-scroll-down-holder {
+//  width: 100%;
+//  bottom: 10px;
+//  left: 0;
+//  text-align: center;
+//  z-index: 2;
+//}
+//#hero-scroll-down-holder .ti {
+//  display: inline-block;
+//  color: white;
+//  cursor: pointer;
+//  transition: all .2s ease-in 0s;
+//}
+//#hero-scroll-down-holder .ti:hover {
+//  color: $green;
+//}
 .hero-carousel {
   position: relative;
   height: 100%;
@@ -521,7 +522,7 @@ body.overlayed #search-top-holder {
   @include vertical-align(absolute);
   @include breakpoint(adaptiveBreak) {
     top: auto;
-    bottom: 100px;
+    bottom: 10px;
     left: 50%;
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
@@ -593,19 +594,13 @@ body.overlayed #search-top-holder {
     width: 100%;
   }
 }
-.home-carousel-holder:first-child {
-  margin-top: -5px;
-}
-.home-carousel-holder:not(:first-child) {
-  margin-top: 20px;
-  @include breakpoint(break980) {
-    margin-top: 30px !important;
-  }
-}
 .home-carousel-holder h2 {
-  margin: 0 0 15px 0;
+  margin: 20px 0 0 0;
   padding: 0 0 5px 0;
   border-bottom: 1px solid $grey;
+  @include breakpoint(break479) {
+    margin: 30px 0 0;
+  }
 }
 .home-carousel-holder h3 a {
   color: $dark-grey;
@@ -624,18 +619,7 @@ body.overlayed #search-top-holder {
 .home-carousel-holder .slick-slide {
   position: relative;
   margin-right: 10px;
-  //margin-left: 10px;
-  padding: 2px;
-  background: #f4f4f4;
-  @include breakpoint(break980) {
-    background: $lighter-grey;
-  }
   @include transition-duration(.5s);
-}
-.home-carousel-holder .slick-slide:hover {
-  @include breakpoint(breakMin981) {
-    box-shadow: 0 0 6px rgba(0, 0, 0, .65);
-  }
 }
 .home-carousel-holder .slick-slide img {
   width: 100%;
@@ -704,111 +688,165 @@ body.overlayed #search-top-holder {
 .popover {
   max-width: 300px;
   padding-bottom: 15px;
+  z-index: 1;
 }
-.synopsys-adaptive-open {
-  display: none;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  padding: 10px 0;
-  text-align: center;
-  @include opacity(.8);
-  @include breakpoint(break980) {
-    display: inline-block;
-
-  }
+.popover.right {
+  margin-left: 4px;
 }
-.synopsys-adaptive-close {
-  display: none;
-  @include breakpoint(break980) {
-    display: block;
-    position: absolute;
-    width: 22px;
-    height: 22px;
-    right: 8px;
-    top: 15px;
-    background: url("../images/template/close.png") no-repeat 0 0;
-  }
-}
-.synopsys-content {
-  display: none;
-  @include breakpoint(break980) {
-    display: block;
-    visibility: hidden;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: white;
-    padding: 0 10px 20px 10px;
-    overflow-y: auto;
-    box-shadow: 0 0 6px rgba(0, 0, 0, .65);
-    @include opacity(0);
-    transition: opacity 0.5s ease-in-out;
-  }
-}
-.synopsys-content.on {
-  @include breakpoint(break980) {
-    @include opacity(.95);
-    visibility: visible;
-  }
-}
-.synopsys-content > div {
-  @include breakpoint(break980) {
-    padding-bottom: 15px;
-  }
+.popover.left {
+  margin-left: -4px;
 }
 .popover-content {
-  padding: 0 14px;
+  padding: 0 4px;
 }
-.popover-content h4,
-.synopsys-content h4 {
-  line-height: 25px;
-  @include breakpoint(break980) {
-    line-height: 25px;
-    margin-top: 45px !important;
-  }
-}
-.popover-content div,
-.synopsys-content div {
-  font-family: 'OpenSansCondensed', Arial, sans-serif;
-}
-.popover-content .slide-score .fa-fw,
-.synopsys-content .slide-score .fa-fw {
-  width: 20px;
-}
-.btn-green-gradient,
-.btn-green-gradient:focus,
-.btn-green-gradient:active {
-  margin: 0 auto;
-  @include linear-gradient(to bottom, $green 0%, #70A008 100%);
-}
-.popover-content .slide-content,
-.synopsys-content .slide-content {
-  color: $dark-grey;
-}
-.popover-content .slide-buttons .btn-trailer,
-.synopsys-content .slide-buttons .btn-trailer {
-  width: 40%;
+.cover-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: none;
+  background: rgba(0, 0, 0, 0) linear-gradient(to top, black 10%, transparent 100%);
+  @include transition-duration(0.55s);
   @include breakpoint(break479) {
-    width: 100%;
-    float: none !important;
-    margin-top: 10px !important;
+    display: block;
   }
 }
-.popover-content .slide-buttons .btn-selection,
-.synopsys-content .slide-buttons .btn-selection {
-  width: 40%;
+.cover-overlay.overlay-off {
+  @include opacity(0);
+}
+.cover-overlay-inner h4 {
   @include breakpoint(break479) {
-    width: 100%;
-    float: none !important;
-    margin-top: 10px !important;
+    display: none;
   }
 }
-.popover-content .slide-footer,
-.synopsys-content .slide-footer {
-  display: block;
+.cover-overlay-inner {
+  width: 100%;
+  height: 100%;
+}
+.cover-icons-holder {
+  text-align: center;
+  margin-top: 20%;
+  @include breakpoint(breakMin480) {
+    margin-top: 15%;
+  }
+}
+.cover-overlay-icon {
+  display: inline-block;
+  width: 55px;
+  vertical-align: top;
+}
+.cover-overlay-icon:last-child {
+  margin-left: 10%;
+}
+.fa-stack,
+.fa-stack:hover {
+  display: inline-block;
+  height: 55px;
+  width: 55px;
+  color: black;
+}
+.fa-plus18 {
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+}
+.circle-bg {
+  font-size: 4em;
+  left: 0;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  @include opacity(.7);
+}
+.fa-inverse {
+  @include opacity(1);
+  margin-top: 19px;
+  color: white;
+  @include breakpoint(breakMin480) {
+    margin-top: 17px;
+  }
+}
+.fa-inverse .fa {
+  font-size: 22px;
+}
+.fa-stack:hover .fa-inverse .fa,
+.fa-stack:hover .fa-inverse .ti {
+  transition: all .3s ease-in-out 0s;
+  color: $green;
+}
+.stack-title {
+  height: 35px;
+  margin-top: 5px;
+  font-size: 11px;
+  text-transform: uppercase;
+  color: white;
+  font-weight: bold;
+  line-height: 15px;
+  @include breakpoint(breakMin480) {
+    color: $dark-grey;
+  }
+}
+.stack-title > * {
+  height: auto;
+  display: inline-block;
+  @include vertical-align();
+  text-shadow: 1px 1px black;
+  @include breakpoint(breakMin480) {
+    text-shadow: none;
+  }
+}
+.slide-score.score-desktop {
+  margin-top: 10px;
+  text-align: left;
+}
+.slide-score.score-desktop .fa-fw {
+  font-size: 16px;
+}
+.cover-overlay-inner .slide-score {
+  margin-top: 10%;
+  padding: 5px 0;
+  font-size: 16px;
+  @include breakpoint(breakMin480) {
+    display: none;
+  }
+}
+.cover-overlay-bottom {
+  position: absolute;
+  bottom: 15px;
+  left: 0;
+  width: 100%;
+  @include breakpoint(breakMin480) {
+    position: relative;
+    float: left;
+    bottom: auto;
+    left: auto;
+  }
+}
+.overlay-watch-btn,
+.overlay-redeem-btn {
+  width: 95%;
+}
+.overlay-redeem-btn {
+  border: 2px solid $green;
+}
+.overlay-watch-btn a {
+  color: white;
+}
+.overlay-watch-btn a:hover {
+  transition: all .3s ease-in-out 0s;
+  color: black;
+}
+.overlay-redeem-btn a {
+  color: $green;
+}
+.overlay-redeem-btn a:hover {
+  transition: all .3s ease-in-out 0s;
+  color: white;
+  @include breakpoint(breakMin480) {
+    color: $dark-grey;
+  }
 }
 .hd {
   padding: 3px;
@@ -823,4 +861,175 @@ body.overlayed #search-top-holder {
     padding: 5px;
   }
 }
+.show-hide-details {
+  display: none;
+  top: 15px;
+  right: 15px;
+  cursor: pointer;
+  z-index: 3;
+  @include breakpoint(break479) {
+    display: block;
+  }
+}
 /*END HOME CAROUSEL SLIDER*/
+
+/*HOME FILTER SEARCH*/
+#filters-holder {
+  position: relative;
+}
+.stickyFilter {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 4;
+}
+a#filter-search-btn,
+a#filter-search-btn:hover,
+a#filter-search-btn:visited,
+a#filter-search-btn:focus {
+  color: $thin-grey;
+}
+#filters-drop {
+  width: 100%;
+  height: 0;
+  top: 61px;
+  left: 0;
+  border-top: 2px solid #e9e9e9;
+  z-index: 2;
+  transition: all 0.35s ease 0s;
+  overflow: hidden;
+  @include breakpoint(break767) {
+    top: 0;
+    position: fixed;
+    overflow-y: scroll;
+    z-index: 5;
+  }
+}
+#filters-drop.open {
+  overflow: visible;
+  height: 320px;
+  box-shadow: 0 5px 6px rgba(0, 0, 0, 0.17);
+  @include breakpoint(break767) {
+    overflow-y: scroll;
+    height: 95%;
+  }
+}
+#filters-drop-close-btn {
+  display: none;
+  height: 22px;
+  padding: 0;
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  width: 22px;
+  cursor: pointer;
+  background: url("../images/template/close.png") no-repeat 0 0;
+  @include breakpoint(break767) {
+    display: block;
+  }
+}
+ul#filters-blocks {
+  //height: 320px;
+  width: 100%;
+  //float: left;
+  padding: 15px 0;
+  @include breakpoint(break767) {
+    padding: 20px 0 0 0;
+    height: auto;
+  }
+}
+ul#filters-blocks > li {
+  @include rwdGrid(4, 2.5%);
+  //height: 100%;
+  @include breakpoint(break767) {
+    @include rwdGrid(2, 2.5%);
+    height: 300px;
+  }
+  @include breakpoint(break479) {
+    @include rwdGrid(1, 0);
+    height: auto;
+  }
+}
+ul#filters-blocks > li:not(:last-child) {
+  border-right: 2px solid #e9e9e9;
+  @include breakpoint(break767) {
+    border-right: none;
+  }
+}
+ul#filters-blocks > li:not(:first-child) {
+  @include breakpoint(break479) {
+    margin-top: 15px;
+  }
+}
+ul#filters-blocks > li:not(:last-child),
+ul#filters-blocks > li:not(:first-child) {
+  padding-right: 20px;
+  @include breakpoint(break767) {
+    padding-right: 0;
+  }
+}
+ul#filters-blocks label {
+  font-family: HelveticaCondensed;
+  font-weight: normal;
+  font-size: 20px;
+}
+ul#filters-blocks .ui-widget {
+  font-size: 14px !important;
+}
+ul#filters-blocks .ui-widget-content {
+  background: #f5f5f5;
+}
+ul#filters-blocks .ui-selectmenu-button {
+  background: #f5f5f5;
+}
+ul#filters-blocks .ui-selectmenu-button span.ui-selectmenu-text {
+  padding: 6px 15px 5px 10px;
+}
+ul#filters-blocks .chosen-container-multi .chosen-choices {
+  background-color: #f5f5f5;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 0;
+}
+.switch-view-panel > div {
+  @include breakpoint(break479) {
+    margin-top: 15px;
+  }
+}
+.switch-view-panel > div:last-child {
+  height: 35px;
+}
+.switch-view-panel a {
+  display: inline-block;
+  height: 24px;
+}
+.switch-view-panel a#activate {
+  margin-left: 10px;
+  font-size: 12px;
+  height: 27px;
+  padding: 0px 0 0px 0;
+  line-height: 22px;
+  width: calc(100% - 75px);
+  @include breakpoint(break980) {
+    //clear: both;
+    //display: block;
+    //float: left;
+    //margin: 10px 0 0 0;
+    //width: 100%;
+  }
+}
+a#box-view:hover,
+a#list-view:hover {
+  @include transition-duration(.5);
+  color: $light-grey;
+}
+.switch-view-panel a .fa {
+  border: 1px solid $light-grey;
+  border-radius: 4px;
+  padding: 4px 3px 2px;
+}
+a.btn#activate {
+  padding: 4px 8px 0;
+}
+/*END HOME FILTER SEARCH*/

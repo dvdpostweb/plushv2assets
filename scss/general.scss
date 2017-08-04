@@ -1080,7 +1080,11 @@ option:first-child {
 .ui-selectmenu-button[aria-expanded=true] .ui-icon-triangle-1-s {
   background-position: 0 -12px;
 }
+.ui-widget-content {
+  border: none;
+}
 /*END DROPDOWN SELECT*/
+
 /* PANELS */
 .panel {
   margin: 20px auto;
@@ -1158,4 +1162,37 @@ option:first-child {
   background: #F5F5F5;
   border-color: #E5E5E5;
 }
+
+/*UI SLIDER*/
+//slider handle
+.ui-slider {
+  margin-top: 2px;
+}
+.ui-slider-horizontal {
+  height: 18px;
+}
+.ui-slider-horizontal .ui-slider-handle {
+  width: 31px;
+  height: 31px;
+  top: -0.7em;
+  line-height: 30px;
+  font-size: 11px;
+  color: $light-grey;
+  background: $thin-grey;
+  text-align: center;
+  cursor: pointer;
+}
+.ui-slider .ui-state-active,
+.ui-slider .ui-state-hover,
+.ui-slider .ui-widget-content .ui-state-active,
+.ui-slider .ui-widget-content .ui-state-hover,
+.ui-slider .ui-widget-header .ui-state-active,
+.ui-slider .ui-widget-header .ui-state-hover {
+  border: 1px solid $blue-facebook;
+  background: $grey;
+  color: white;
+  border-radius: 3px;
+
+}
+/*END UI SLIDER*/
 /*END GENERAL*/

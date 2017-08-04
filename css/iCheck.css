@@ -1,0 +1,81 @@
+/* iCheck plugin Minimal skin, black
+        ----------------------------------- */
+.check {
+    font-weight: 400;
+    line-height: 20px;
+    margin: 5px 0px;
+    cursor: pointer;
+}
+.check .icheckbox_minimal-grey,
+.check .iradio_minimal-grey,
+.check .iradio_facebook_blue {
+    margin-right: 5px;
+    margin-top: -2px;
+}
+.check.disabled {
+    color: #AAA;
+}
+.icheckbox_minimal-grey,
+.iradio_minimal-grey {
+    display: inline-block;
+    *display: inline;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+    width: 18px;
+    height: 18px;
+    background: url("../images/icheck/grey.png") no-repeat;
+    border: none;
+    cursor: pointer;
+}
+.iradio_facebook_blue {
+    display: inline-block;
+    *display: inline;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+    width: 18px;
+    height: 18px;
+    background: url("../images/icheck/facebook_blue.png") no-repeat;
+    border: none;
+    cursor: pointer;
+}
+
+.icheckbox_minimal-grey {
+    background-position: 0 0;
+}
+.icheckbox_minimal-grey.hover {
+    background-position: -20px 0;
+}
+.icheckbox_minimal-grey.checked {
+    background-position: -40px 0;
+}
+.icheckbox_minimal-grey.disabled {
+    background-position: -60px 0;
+    cursor: default;
+}
+.icheckbox_minimal-grey.checked.disabled {
+    background-position: -80px 0;
+}
+.iradio_minimal-grey,
+.iradio_facebook_blue {
+    background-position: -100px 0;
+}
+.iradio_minimal-grey.hover,
+.iradio_facebook_blue.hover {
+    background-position: -120px 0;
+}
+.iradio_minimal-grey.checked,
+.iradio_facebook_blue.checked {
+    background-position: -140px 0;
+}
+.iradio_minimal-grey.disabled,
+.iradio_facebook_blue.disabled {
+    background-position: -160px 0;
+    cursor: default;
+}
+.iradio_minimal-grey.checked.disabled,
+.iradio_facebook_blue.checked.disabled {
+    background-position: -180px 0;
+}
+/* END icheckbox */

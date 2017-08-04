@@ -17,6 +17,13 @@ switch ($page) {
         $content = 'home.php';
 //        $footer = '';
         break;
+    case '_covers_draft' : //home
+        $page_title = SITENAME . ' - ' . ' Covers Draft';
+        $top = '';
+//        $left_filters = '';
+        $content = '_covers_draft.php';
+//        $footer = '';
+        break;
 
 }
 
