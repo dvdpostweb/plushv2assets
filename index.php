@@ -13,16 +13,17 @@ switch ($page) {
     case 'home' : //home
         $page_title = SITENAME . ' - ' . 'Movies';
         $top = 'inc/top.php';
-//        $left_filters = '';
         $content = 'home.php';
-//        $footer = '';
+        break;
+        case 'movie-full' : //home
+        $page_title = SITENAME . ' - ' . 'RocknRolla';
+        $top = 'inc/top.php';
+        $content = 'movie-full.php';
         break;
     case '_covers_draft' : //home
         $page_title = SITENAME . ' - ' . ' Covers Draft';
         $top = '';
-//        $left_filters = '';
         $content = '_covers_draft.php';
-//        $footer = '';
         break;
 
 }

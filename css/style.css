@@ -1221,7 +1221,6 @@ a#filter-search-btn:focus {
   border-top: 2px solid #e9e9e9;
   z-index: 2;
   transition: all 0.35s ease 0s;
-  overflow: hidden;
 }
 @media (max-width: 767px) {
   #filters-drop {
@@ -1233,7 +1232,6 @@ a#filter-search-btn:focus {
 }
 
 #filters-drop.open {
-  overflow: visible;
   height: 320px;
   box-shadow: 0 5px 6px rgba(0, 0, 0, 0.17);
 }

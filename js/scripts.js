@@ -36,7 +36,8 @@ $(document).ready(function () {
     });
 
 
-
+    //selectmenu dropdown
+    $(".dropdown-select").selectmenu();
 
     //sidebar scroll
     // $("#sidebar").mCustomScrollbar();
